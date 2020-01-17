@@ -29,6 +29,11 @@
 
 // Code Here 
 
+function first (arr, callback) {
+  callback(arr[0])
+  
+}
+
 // Do not edit the code below.
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 
@@ -48,6 +53,9 @@ first(names, function(firstName){
 */
 
 //Code Here
+function last(names, func) {
+    func(names[names.length - 1]);
+}
 
 // Do not edit the code below.
 last(names, function(lastName){
@@ -64,6 +72,13 @@ last(names, function(lastName){
   Write a function called multiply that takes in three parameters: two numbers and a callback function.  
   Invoke the callback, passing in the product of the two numbers multiplied as the argument. 
 */
+
+function multiply(num1, num2, func) {
+  func(num1 * num2);
+}
+multiply(2, 4, multiply());
+
+
 
 //Code Here
 
@@ -84,7 +99,14 @@ multiply(4, 3, function(answer){
   If the name does not exist, invoke the callback with false as the argument.
 */
 
-//Code Here 
+function contains(array, name, callback) {
+  for(let i=0; i<array.length; i++){
+    if(array[i] === name) callback(true);
+  }
+  callback(false);
+}
+
+
 
 // Do not edit the code below.
 contains(names, 'Colt', function(result){
@@ -106,6 +128,18 @@ contains(names, 'Colt', function(result){
 */
 
 //Code Here
+function uniq(arr, callback){
+for (let i=0; i< arr.length; i++){
+  for (let j = i + 1; j < arr.length; j++){
+    if (arr[i] === arr[j]) {
+      arr.splice(j, 1);
+    }
+  }
+}
+callback(arr);
+
+}
+
 
 // Do not edit the code below.
 uniq(names, function(uniqArr){
@@ -123,6 +157,11 @@ uniq(names, function(uniqArr){
 */
 
 //Code Here 
+function each(namesArray, callback){
+  for(let i=0; i< namesArray.length; i++){
+  callback(namesArray[i], i)
+}
+}
 
 // Do not edit the code below.
 each(names, function(item, indice){
@@ -140,6 +179,16 @@ each(names, function(item, indice){
 */
 
 // Code here
+
+function getUserById(arrayParameter, idParameter, callbackParamater){
+  for (let i = 0; i < arrayParameter.length; i++){
+    if (arrayParameter[i].id ===idParameter){
+      callbackParamater(arrayParameter[i])
+    }
+  }
+    
+  }
+
 
 // Do not edit the code below.
 var users = [
